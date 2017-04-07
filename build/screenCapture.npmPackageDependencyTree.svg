@@ -1,0 +1,11 @@
+<svg height="126" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="126" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">1 megabytes</tspan>
+<tspan x="10" y="42">└─┬ shoe@0.0.15 </tspan>
+<tspan x="10" y="58">  ├─┬ sockjs@0.3.7 </tspan>
+<tspan x="10" y="74">  │ ├── faye-websocket@0.4.4 </tspan>
+<tspan x="10" y="90">  │ └── node-uuid@1.3.3 </tspan>
+<tspan x="10" y="106">  └── sockjs-client@0.0.0-unreleasable</tspan>
+</text>
+</svg>

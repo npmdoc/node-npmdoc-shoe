@@ -1,0 +1,155 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/substack/shoe">shoe (v0.0.15)</a>
+</h1>
+<h4>streaming sockjs for node and the browser</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.shoe">module shoe</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.shoe.createServer">
+            function <span class="apidocSignatureSpan">shoe.</span>createServer
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.shoe.listen">
+            function <span class="apidocSignatureSpan">shoe.</span>listen
+            <span class="apidocSignatureSpan">(http_server, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.shoe" id="apidoc.module.shoe">module shoe</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.shoe.createServer" id="apidoc.element.shoe.createServer">
+        function <span class="apidocSignatureSpan">shoe.</span>createServer
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createServer = function (options) {
+  return new Server(options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var sockjs = require('sockjs');
+
+exports = module.exports = function (opts, cb) {
+    if (typeof opts === 'function') {
+cb = opts;
+opts = {};
+    }
+    var server = sockjs.<span class="apidocCodeKeywordSpan">createServer</span>();
+    var handler = function (stream) {
+var _didTimeout = stream._session.didTimeout
+var _didClose = stream._session.didClose
+
+stream._session.didTimeout = function () {
+    cleanup()
+    _didTimeout.apply(this, arguments)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.shoe.listen" id="apidoc.element.shoe.listen">
+        function <span class="apidocSignatureSpan">shoe.</span>listen
+        <span class="apidocSignatureSpan">(http_server, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">listen = function (http_server, options) {
+  var srv;
+  srv = exports.createServer(options);
+  if (http_server) srv.installHandlers(http_server);
+  return srv;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+``` js
+var shoe = require('shoe');
+var http = require('http');
+
+var ecstatic = require('ecstatic')(__dirname + '/static');
+
+var server = http.createServer(ecstatic);
+server.<span class="apidocCodeKeywordSpan">listen</span>(9999);
+
+var sock = shoe(function (stream) {
+var iv = setInterval(function () {
+    stream.write(Math.floor(Math.random() * 2));
+}, 250);
+
+stream.on('end', function () {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
