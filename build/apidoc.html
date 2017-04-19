@@ -63,6 +63,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.shoe.shoe">
+            function <span class="apidocSignatureSpan"></span>shoe
+            <span class="apidocSignatureSpan">(opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.shoe.createServer">
             function <span class="apidocSignatureSpan">shoe.</span>createServer
             <span class="apidocSignatureSpan">(options)</span>
@@ -85,6 +94,71 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.shoe" id="apidoc.module.shoe">module shoe</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.shoe.shoe" id="apidoc.element.shoe.shoe">
+        function <span class="apidocSignatureSpan"></span>shoe
+        <span class="apidocSignatureSpan">(opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">shoe = function (opts, cb) {
+    if (typeof opts === &#x27;function&#x27;) {
+        cb = opts;
+        opts = {};
+    }
+    var server = sockjs.createServer();
+    var handler = function (stream) {
+        var _didTimeout = stream._session.didTimeout
+        var _didClose = stream._session.didClose
+
+        stream._session.didTimeout = function () {
+            cleanup()
+            _didTimeout.apply(this, arguments)
+        }
+        stream._session.didClose = function () {
+            cleanup()
+            _didClose.apply(this, arguments)
+        }
+
+        cb(stream)
+
+        function cleanup() {
+            stream.emit(&#x22;close&#x22;)
+            if (stream.destroy) {
+                stream.destroy()
+            }
+        }
+    }
+    if (typeof cb === &#x27;function&#x27;) {
+        server.on(&#x27;connection&#x27;, handler);
+    }
+    server.install = function (httpServer, hopts) {
+        if (hopts &#x26;&#x26; hopts.listen &#x26;&#x26; !httpServer.listen) {
+            httpServer = arguments[1];
+            hopts = arguments[0];
+        }
+        if (typeof hopts === &#x27;string&#x27;) {
+            hopts = { prefix : hopts };
+        }
+        if (!hopts) hopts = {};
+        if (hopts.log === undefined) {
+            // spamming stdout by default is VERY infuriating,
+            // emit an event instead
+            hopts.log = function (severity, line) {
+                server.emit(&#x27;log&#x27;, severity, line);
+            };
+        }
+        server.installHandlers(httpServer, hopts);
+        return server;
+    };
+
+    return server;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
