@@ -171,23 +171,7 @@
     <li>description and source-code<pre class="apidocCodePre">createServer = function (options) {
   return new Server(options);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-var sockjs = require(&#x27;sockjs&#x27;);
-
-exports = module.exports = function (opts, cb) {
-    if (typeof opts === &#x27;function&#x27;) {
-cb = opts;
-opts = {};
-    }
-    var server = sockjs.<span class="apidocCodeKeywordSpan">createServer</span>();
-    var handler = function (stream) {
-var _didTimeout = stream._session.didTimeout
-var _didClose = stream._session.didClose
-
-stream._session.didTimeout = function () {
-    cleanup()
-    _didTimeout.apply(this, arguments)
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -205,23 +189,7 @@ stream._session.didTimeout = function () {
   if (http_server) srv.installHandlers(http_server);
   return srv;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-``` js
-var shoe = require(&#x27;shoe&#x27;);
-var http = require(&#x27;http&#x27;);
-
-var ecstatic = require(&#x27;ecstatic&#x27;)(__dirname + &#x27;/static&#x27;);
-
-var server = http.createServer(ecstatic);
-server.<span class="apidocCodeKeywordSpan">listen</span>(9999);
-
-var sock = shoe(function (stream) {
-var iv = setInterval(function () {
-    stream.write(Math.floor(Math.random() * 2));
-}, 250);
-
-stream.on(&#x27;end&#x27;, function () {
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 

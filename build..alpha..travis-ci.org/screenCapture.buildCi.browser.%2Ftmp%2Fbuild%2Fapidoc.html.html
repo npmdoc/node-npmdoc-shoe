@@ -164,23 +164,7 @@
     <li>description and source-code<pre class="apidocCodePre">createServer = function (options) {
   return new Server(options);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-var sockjs = require('sockjs');
-
-exports = module.exports = function (opts, cb) {
-    if (typeof opts === 'function') {
-cb = opts;
-opts = {};
-    }
-    var server = sockjs.<span class="apidocCodeKeywordSpan">createServer</span>();
-    var handler = function (stream) {
-var _didTimeout = stream._session.didTimeout
-var _didClose = stream._session.didClose
-
-stream._session.didTimeout = function () {
-    cleanup()
-    _didTimeout.apply(this, arguments)
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -198,23 +182,7 @@ stream._session.didTimeout = function () {
   if (http_server) srv.installHandlers(http_server);
   return srv;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-``` js
-var shoe = require('shoe');
-var http = require('http');
-
-var ecstatic = require('ecstatic')(__dirname + '/static');
-
-var server = http.createServer(ecstatic);
-server.<span class="apidocCodeKeywordSpan">listen</span>(9999);
-
-var sock = shoe(function (stream) {
-var iv = setInterval(function () {
-    stream.write(Math.floor(Math.random() * 2));
-}, 250);
-
-stream.on('end', function () {
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
