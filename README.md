@@ -1,6 +1,6 @@
 # npmdoc-shoe
 
-#### api documentation for  [shoe (v0.0.15)](https://github.com/substack/shoe)  [![npm package](https://img.shields.io/npm/v/npmdoc-shoe.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-shoe) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-shoe.svg)](https://travis-ci.org/npmdoc/node-npmdoc-shoe)
+#### basic api documentation for  [shoe (v0.0.15)](https://github.com/substack/shoe)  [![npm package](https://img.shields.io/npm/v/npmdoc-shoe.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-shoe) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-shoe.svg)](https://travis-ci.org/npmdoc/node-npmdoc-shoe)
 
 #### streaming sockjs for node and the browser
 
@@ -90,7 +90,8 @@
             "android/latest"
         ]
     },
-    "version": "0.0.15"
+    "version": "0.0.15",
+    "bin": {}
 }
 ```
 

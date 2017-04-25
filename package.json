@@ -1,7 +1,7 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
     "buildNpmdoc": "shoe",
-    "description": "#### api documentation for  [shoe (v0.0.15)](https://github.com/substack/shoe)  [![npm package](https://img.shields.io/npm/v/npmdoc-shoe.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-shoe) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-shoe.svg)](https://travis-ci.org/npmdoc/node-npmdoc-shoe)",
+    "description": "#### basic api documentation for  [shoe (v0.0.15)](https://github.com/substack/shoe)  [![npm package](https://img.shields.io/npm/v/npmdoc-shoe.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-shoe) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-shoe.svg)](https://travis-ci.org/npmdoc/node-npmdoc-shoe)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "shoe": "*",
@@ -36,5 +36,5 @@
         "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.2"
+    "version": "2017.4.26"
 }
